@@ -1,12 +1,16 @@
 package com.randomactions.stormy.Weather;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 /**
  * Created by root on 11/23/15.
  */
 public class Day {
     private long mTime;
     private String mSummary;
-    private double mTemperature;
+    private double mTemperatureMax;
     private String mIcon;
     private String mTimezone;
 
@@ -26,12 +30,12 @@ public class Day {
         mSummary = summary;
     }
 
-    public double getTemperature() {
-        return mTemperature;
+    public int getTemperatureMax() {
+        return (int) Math.round(mTemperatureMax);
     }
 
-    public void setTemperature(double temperature) {
-        mTemperature = temperature;
+    public void setTemperatureMax(double temperatureMax) {
+        mTemperatureMax = temperatureMax;
     }
 
     public String getIcon() {
@@ -48,5 +52,16 @@ public class Day {
 
     public void setTimezone(String timezone) {
         mTimezone = timezone;
+    }
+
+    public int getIconId(){
+        return Forecast.getIconId(mIcon);
+    }
+
+    public String getDayOfTheWeek() {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getTimeZone(mTimezone));
+        Date dateTime = new Date(mTime*1000); //ms to sec
+        return formatter.format(dateTime);
     }
 }

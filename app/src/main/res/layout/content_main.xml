@@ -5,15 +5,14 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    android:background="#FFFC970B">
+    android:background="@drawable/bg_gradient">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tempLabel"
+        android:id="@+id/termperatureLabel"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:text="--"
@@ -27,9 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/degreeImageView"
-        android:layout_alignTop="@+id/tempLabel"
-        android:layout_toRightOf="@+id/tempLabel"
-        android:layout_toEndOf="@+id/tempLabel"
+        android:layout_alignTop="@+id/termperatureLabel"
+        android:layout_toRightOf="@+id/termperatureLabel"
+        android:layout_toEndOf="@+id/termperatureLabel"
         android:src="@drawable/degree"
         android:layout_marginTop="50dp" />
 
@@ -40,7 +39,7 @@
         android:id="@+id/timeLabel"
         android:textColor="#80ffffff"
         android:textSize="18sp"
-        android:layout_alignTop="@+id/tempLabel"
+        android:layout_alignTop="@+id/termperatureLabel"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -68,7 +67,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tempLabel"
+        android:layout_alignBottom="@+id/termperatureLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp">
 
@@ -127,7 +126,7 @@
         android:layout_height="wrap_content"
         android:text="Getting current weather..."
         android:id="@+id/summaryLabel"
-        android:layout_below="@+id/tempLabel"
+        android:layout_below="@+id/termperatureLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textColor="@android:color/white"
@@ -149,5 +148,35 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@+id/refreshImageView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hourly"
+            android:id="@+id/hourlyButton"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFFFF"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7 DAY"
+            android:id="@+id/dailyButton"
+            android:layout_weight="1"
+            android:textColor="#FFFFFFFF"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="2dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
